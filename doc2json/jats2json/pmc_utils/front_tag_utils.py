@@ -384,8 +384,9 @@ def parse_abstract_tag(front_tag, soup) -> List[Dict]:
                 all_par_blobs.extend(par_blobs)
         else:
             all_par_blobs = parse_all_paragraphs_in_section(sec_tag=abstract_tag)
-            for par_blob in all_par_blobs:
-                # these 'sections' typically show up as empty string
-                par_blob['section'] = 'Abstract'
-                abstract.append(par_blob)
+            
+        for par_blob in all_par_blobs:
+            # these 'sections' typically show up as empty string
+            par_blob['section'] = 'Abstract'
+            abstract.append(par_blob)
     return abstract
